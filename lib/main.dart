@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:wadiz_with_riverpod/router.dart';
 import 'package:wadiz_with_riverpod/theme.dart';
 
 void main(){
@@ -13,12 +14,14 @@ class AppEntry extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: wadizDefaulteTheme,
-      home: const Scaffold(
-        body: Center(
-          child: Text('Hello, World!'),
-        ),
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.light,
+      routerConfig: router,
+      themeAnimationStyle: AnimationStyle(
+        curve: Curves.easeInCirc,
+        duration: const Duration(milliseconds: 350),
       ),
     );
   }
